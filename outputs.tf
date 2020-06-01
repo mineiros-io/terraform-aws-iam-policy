@@ -6,6 +6,11 @@
 # OUTPUT ALL RESOURCES AS FULL OBJECTS
 # ------------------------------------------------------------------------------
 
+output "policy" {
+  description = "The aws_iam_policy object."
+  value       = try(aws_iam_policy.policy[0], null)
+}
+
 # ------------------------------------------------------------------------------
 # OUTPUT ALL INPUT VARIABLES
 # ------------------------------------------------------------------------------
