@@ -11,6 +11,11 @@ output "policy" {
   value       = try(aws_iam_policy.policy[0], null)
 }
 
+output "policy_attachment" {
+  description = "The aws_iam_policy_attachment object."
+  value       = try(aws_iam_policy_attachment.policy_attachment[0], null)
+}
+
 # ------------------------------------------------------------------------------
 # OUTPUT ALL INPUT VARIABLES
 # ------------------------------------------------------------------------------

@@ -34,6 +34,18 @@ resource "aws_iam_policy" "policy" {
   depends_on = [var.module_depends_on]
 }
 
+resource "aws_iam_policy_attachment" "policy_attachment" {
+  count = var.module_enabled && (var.users != null || var.roles != null || var.groups != null) ? 1 : 0
+
+  name       = var.attachment_name != null ? var.attachment_name : aws_iam_policy.policy[0].name
+  users      = var.users
+  roles      = var.roles
+  groups     = var.groups
+  policy_arn = aws_iam_policy.policy[0].arn
+
+  depends_on = [var.module_depends_on]
+}
+
 data "aws_iam_policy_document" "policy" {
   count = var.module_enabled && local.create_policy ? 1 : 0
 

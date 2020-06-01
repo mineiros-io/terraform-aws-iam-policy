@@ -25,6 +25,7 @@ A [Terraform](https://www.terraform.io) 0.12 base module for
 You can create a custom AWS IAM Policy that can be attached to other IAM resources as users, roles or groups.
 
 - **Standard Module Features**: Create a custom IAM Policy.
+- **Extended Module Features**: Create exclusive policy attachments to roles, groups and/or users.
 
 ## Getting Started
 Basic usage for creating an IAM Policy granting full access to AWS Simple Storage Service (S3)
@@ -66,6 +67,8 @@ for details and use-cases.
   external dependency.
 
 #### Top-level Arguments
+
+##### Main Resource Configuration
 
 - **`policy`**: **(Required `string`) The policy document.**
 
@@ -123,9 +126,46 @@ for details and use-cases.
 
   Path in which to create the policy. Default is `"/"`
 
+##### Extended Resource configuration
+
+###### Policy attachment
+> **WARNING:** The used `aws_iam_policy_attachment` resource creates exclusive IAM policies attachments.
+> Across the entire AWS account, all of the users/roles/groups to which a single policy
+> is attached must be declared by a single `aws_iam_policy_attachment` resource.
+> This means that even any users/roles/groups that have the attached policy via any other mechanism
+> (including other Terraform resources) will have that attached policy revoked by this resource.
+>
+> Consider attaching this policy using the other Mineiros IAM modules
+> [`mineiros-io/terraform-aws-iam-role`](https://github.com/mineiros-io/terraform-aws-iam-role),
+> [`mineiros-io/terraform-aws-iam-group`](https://github.com/mineiros-io/terraform-aws-iam-group),
+> [`mineiros-io/terraform-aws-iam-user`](https://github.com/mineiros-io/terraform-aws-iam-user).
+>
+> Or consider attaching this policy via the direct resources
+> `aws_iam_role_policy_attachment`,
+> `aws_iam_user_policy_attachment`, or
+> `aws_iam_group_policy_attachment` instead.
+> These modules and/or resources do not enforce exclusive attachment of an IAM policy.
+
+- **`attachment_name`**: *(Optional `string`)*
+
+  The name of the attachment. Defaults to the `name` of the policy.
+
+- **`users`**: *(Optional `list(string)`)*
+
+  The user(s) the policy should be applied to
+
+- **`roles`**: *(Optional `list(string)`)*
+
+  The role(s) the policy should be applied to
+
+- **`groups`**: *(Optional `list(string)`)*
+
+  The group(s) the policy should be applied to
+
 ## Module Attributes Reference
 The following attributes are exported by the module:
 - **`policy`**: The `aws_iam_policy` object.
+- **`policy_attachment`**: The `aws_iam_policy_attachment` object.
 
 ## External Documentation
 - AWS Documentation:
@@ -134,6 +174,7 @@ The following attributes are exported by the module:
 
 - Terraform AWS Provider Documentation:
   - https://www.terraform.io/docs/providers/aws/r/iam_policy.html
+  - https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html
 
 ## Module Versioning
 This Module follows the principles of [Semantic Versioning (SemVer)](https://semver.org/).

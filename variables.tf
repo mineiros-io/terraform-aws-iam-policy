@@ -52,6 +52,33 @@ variable "path" {
   default     = "/"
 }
 
+# policy_attachment
+
+variable "attachment_name" {
+  type        = string
+  description = "(Optional) - The name of the attachment. Default is name of the policy."
+  default     = null
+}
+
+variable "users" {
+  type        = list(string)
+  description = "(Optional) - The user(s) the policy should be applied to. Default is null."
+  default     = null
+}
+
+variable "roles" {
+  type        = list(string)
+  description = "(Optional) - The role(s) the policy should be applied to. Default is null."
+  default     = null
+}
+
+variable "groups" {
+  type        = list(string)
+  description = "(Optional) - The group(s) the policy should be applied to. Default is null."
+  default     = null
+}
+
+
 # ------------------------------------------------------------------------------
 # MODULE CONFIGURATION PARAMETERS
 # These variables are used to configure the module.
