@@ -1,33 +1,44 @@
 [<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="200"/>](https://mineiros.io/?ref=terraform-aws-iam-policy)
 
-[![Maintained by Mineiros.io](https://img.shields.io/badge/maintained%20by-mineiros.io-f32752.svg)](https://mineiros.io/?ref=terraform-aws-iam-policy)
-[![Build Status](https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields&key=5c1d19f4-f0d7-4537-9dcb-5e07bba8dfd3)](https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy)
+[![Build Status](https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields)](https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-iam-policy.svg?label=latest&sort=semver)](https://github.com/mineiros-io/terraform-aws-iam-policy/releases)
-[![Terraform Version](https://img.shields.io/badge/terraform-~%3E%200.12.20-brightgreen.svg)](https://github.com/hashicorp/terraform/releases)
-[![License](https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
+[![license](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Terraform Version](https://img.shields.io/badge/terraform-~%3E%200.12.20-623CE4.svg)](https://github.com/hashicorp/terraform/releases)
+[<img src="https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack">](https://join.slack.com/t/mineiros-community/shared_invite/zt-ehidestg-aLGoIENLVs6tvwJ11w9WGg)
 
 # terraform-aws-iam-policy
-A [Terraform](https://www.terraform.io) 0.12 base module for
+
+A [Terraform](https://www.terraform.io) 0.12 base module deploying and managing
+[IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) on
 [Amazon Web Services (AWS)](https://aws.amazon.com/).
 
 - [Module Features](#module-features)
 - [Getting Started](#getting-started)
 - [Module Argument Reference](#module-argument-reference)
+  - [Module Configuration](#module-configuration)
+  - [Top-level Arguments](#top-level-arguments)
+    - [Main Resource Configuration](#main-resource-configuration)
+    - [Extended Resource configuration](#extended-resource-configuration)
+      - [Policy attachment](#policy-attachment)
 - [Module Attributes Reference](#module-attributes-reference)
 - [External Documentation](#external-documentation)
 - [Module Versioning](#module-versioning)
+  - [Backwards compatibility in `0.0.z` and `0.y.z` version](#backwards-compatibility-in-00z-and-0yz-version)
 - [About Mineiros](#about-mineiros)
 - [Reporting Issues](#reporting-issues)
 - [Contributing](#contributing)
+- [Makefile Targets](#makefile-targets)
 - [License](#license)
 
 ## Module Features
+
 You can create a custom AWS IAM Policy that can be attached to other IAM resources as users, roles or groups.
 
 - **Standard Module Features**: Create a custom IAM Policy.
 - **Extended Module Features**: Create exclusive policy attachments to roles, groups and/or users.
 
 ## Getting Started
+
 Basic usage for creating an IAM Policy granting full access to AWS Simple Storage Service (S3)
 
 ```hcl
@@ -49,13 +60,15 @@ module "role-s3-full-access" {
 ```
 
 ## Module Argument Reference
+
 See
 [variables.tf](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/variables.tf)
 and
 [examples/](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/examples)
 for details and use-cases.
 
-#### Module Configuration
+### Module Configuration
+
 - **`module_enabled`**: *(Optional `bool`)*
 
   Specifies whether resources in the module will be created.
@@ -66,9 +79,9 @@ for details and use-cases.
   A list of dependencies. Any object can be assigned to this list to define a hidden
   external dependency.
 
-#### Top-level Arguments
+### Top-level Arguments
 
-##### Main Resource Configuration
+#### Main Resource Configuration
 
 - **`policy`**: **(Required `string`) The policy document.**
 
@@ -126,9 +139,10 @@ for details and use-cases.
 
   Path in which to create the policy. Default is `"/"`
 
-##### Extended Resource configuration
+#### Extended Resource configuration
 
-###### Policy attachment
+##### Policy attachment
+
 > **WARNING:** The used `aws_iam_policy_attachment` resource creates exclusive IAM policies attachments.
 > Across the entire AWS account, all of the users/roles/groups to which a single policy
 > is attached must be declared by a single `aws_iam_policy_attachment` resource.
@@ -137,8 +151,8 @@ for details and use-cases.
 >
 > Consider attaching this policy using the other Mineiros IAM modules
 > [`mineiros-io/terraform-aws-iam-role`](https://github.com/mineiros-io/terraform-aws-iam-role),
-> `mineiros-io/terraform-aws-iam-group` (coming soon),
-> `mineiros-io/terraform-aws-iam-user` (coming soon).
+> [`mineiros-io/terraform-aws-iam-group`](https://github.com/mineiros-io/terraform-aws-iam-group),
+> [`mineiros-io/terraform-aws-iam-user`](https://github.com/mineiros-io/terraform-aws-iam-user).
 >
 > Or consider attaching this policy via the direct resources
 > `aws_iam_role_policy_attachment`,
@@ -163,11 +177,14 @@ for details and use-cases.
   The group(s) the policy should be applied to
 
 ## Module Attributes Reference
+
 The following attributes are exported by the module:
+
 - **`policy`**: The `aws_iam_policy` object.
 - **`policy_attachment`**: The `aws_iam_policy_attachment` object.
 
 ## External Documentation
+
 - AWS Documentation:
   - https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
   - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
@@ -177,44 +194,52 @@ The following attributes are exported by the module:
   - https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html
 
 ## Module Versioning
+
 This Module follows the principles of [Semantic Versioning (SemVer)](https://semver.org/).
 
 Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following constructs:
-1) Use the `MAJOR` version for incompatible changes.
-2) Use the `MINOR` version when adding functionality in a backwards compatible manner.
-3) Use the `PATCH` version when introducing backwards compatible bug fixes.
+
+1. Use the `MAJOR` version for incompatible changes.
+1. Use the `MINOR` version when adding functionality in a backwards compatible manner.
+1. Use the `PATCH` version when introducing backwards compatible bug fixes.
 
 ### Backwards compatibility in `0.0.z` and `0.y.z` version
+
 - In the context of initial development, backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is
   increased. (Initial development)
 - In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is
   increased. (Pre-release)
 
 ## About Mineiros
-Mineiros is a [DevOps as a Service](https://mineiros.io/) company based in Berlin, Germany. We offer commercial support
-for all of our projects and encourage you to reach out if you have any questions or need help.
-Feel free to send us an email at [hello@mineiros.io](mailto:hello@mineiros.io).
+
+Mineiros is a [DevOps as a Service](https://mineiros.io/?ref=terraform-aws-iam-policy) company based in Berlin,
+Germany. We offer commercial support for all of our projects and encourage you to reach out if you have any questions or
+need help. Feel free to send us an email at [hello@mineiros.io](mailto:hello@mineiros.io).
 
 We can also help you with:
-- Terraform Modules for all types of infrastructure such as VPC's, Docker clusters,
-  databases, logging and monitoring, CI, etc.
-- Consulting & Training on AWS, Terraform and DevOps.
+
+- Terraform modules for all types of infrastructure such as VPCs, Docker clusters, databases, logging and monitoring, CI, etc.
+- Consulting & training on AWS, Terraform and DevOps
 
 ## Reporting Issues
+
 We use GitHub [Issues](https://github.com/mineiros-io/terraform-aws-iam-policy/issues)
 to track community reported issues and missing features.
 
 ## Contributing
+
 Contributions are always encouraged and welcome! For the process of accepting changes, we use
 [Pull Requests](https://github.com/mineiros-io/terraform-aws-iam-policy/pulls). If you'd like more information, please
 see our [Contribution Guidelines](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md).
 
 ## Makefile Targets
+
 This repository comes with a handy
-[Makefile](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile).  
+[Makefile](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile).
 Run `make help` to see details on each available target.
 
 ## License
+
 This module is licensed under the Apache License Version 2.0, January 2004.
 Please see [LICENSE](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE) for full details.
 
