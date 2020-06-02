@@ -76,12 +76,30 @@ help:
 				printf "  ${GREEN}%-30s${RESET} %s\n", cmd, msg; \
 			} \
 	} \
-	{ lastLine = $$0 }' $(MAKEFILE_LIST)
+	{ lastLine = $$0 }' $(MAKEFILE_LIST) | sort -u
 
-# define helper functions
-quiet-command = $(if ${V},${1},$(if ${2},@echo ${2} && ${1}, @${1}))
+.DEFAULT_GOAL := help
 
-docker-run    = $(call quiet-command,${DOCKER_RUN_CMD} ${1} | cat,"${YELLOW}[DOCKER RUN] ${GREEN}${1}${RESET}")
-go-test       = $(call quiet-command,${DOCKER_RUN_CMD} go test -v -count=1 -timeout 45m -parallel 128 ${1} | cat,"${YELLOW}[TEST] ${GREEN}${1}${RESET}")
+## Mounts the working directory inside a docker container and runs the pre-commit hooks
+docker/pre-commit-hooks:
+	@echo "${GREEN}Start running the pre-commit hooks with docker${RESET}"
+	@docker run --rm \
+		-u ${USER_UID}:${USER_GID} \
+		-e HOME=/tmp \
+		-v ${PWD}:${MOUNT_TARGET_DIRECTORY} \
+		${BUILD_TOOLS_DOCKER_IMAGE} \
+		sh -c "pre-commit run -a"
 
-rm-command    = $(call quiet-command,rm -rf ${1},"${YELLOW}[CLEAN] ${GREEN}${1}${RESET}")
+.PHONY: help docker/pre-commit-hooks
+
+## Mounts the working directory inside a new container and runs the Go tests. Requires $AWS_ACCESS_KEY_ID and $AWS_SECRET_ACCESS_KEY to be set
+docker/unit-tests:
+	@echo "${GREEN}Start running the unit tests with docker${RESET}"
+	@docker run --rm \
+		-e AWS_ACCESS_KEY_ID \
+		-e AWS_SECRET_ACCESS_KEY \
+		-u ${USER_UID}:${USER_GID} \
+		-e HOME=/tmp \
+		-v ${PWD}:${MOUNT_TARGET_DIRECTORY} \
+		${BUILD_TOOLS_DOCKER_IMAGE} \
+		go test -v -timeout 45m -parallel 128 test/example_test.go
