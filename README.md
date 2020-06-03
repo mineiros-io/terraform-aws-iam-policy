@@ -1,4 +1,4 @@
-[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="200"/>](https://mineiros.io/?ref=terraform-aws-iam-policy)
+[<img src="https://raw.githubusercontent.com/mineiros-io/brand/e9fff6ecb9617dcb405079f301e23fd83b79c5f3/mineiros-primary-logo.svg" width="400"/>](https://mineiros.io/?ref=terraform-aws-iam-policy)
 
 [![Build Status](https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields)](https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-iam-policy.svg?label=latest&sort=semver)](https://github.com/mineiros-io/terraform-aws-iam-policy/releases)
@@ -151,8 +151,8 @@ for details and use-cases.
 >
 > Consider attaching this policy using the other Mineiros IAM modules
 > [`mineiros-io/terraform-aws-iam-role`](https://github.com/mineiros-io/terraform-aws-iam-role),
-> [`mineiros-io/terraform-aws-iam-group`](https://github.com/mineiros-io/terraform-aws-iam-group),
-> [`mineiros-io/terraform-aws-iam-user`](https://github.com/mineiros-io/terraform-aws-iam-user).
+> `mineiros-io/terraform-aws-iam-group` (coming soon),
+> `mineiros-io/terraform-aws-iam-user` (coming soon).
 >
 > Or consider attaching this policy via the direct resources
 > `aws_iam_role_policy_attachment`,
