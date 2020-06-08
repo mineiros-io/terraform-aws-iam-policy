@@ -1,4 +1,4 @@
-[<img src="https://raw.githubusercontent.com/mineiros-io/brand/master/mineiros-vertial-logo-smaller-font.svg" width="200"/>](https://mineiros.io/?ref=terraform-aws-iam-policy)
+[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="200"/>](https://mineiros.io/?ref=terraform-aws-iam-policy)
 
 [![Maintained by Mineiros.io](https://img.shields.io/badge/maintained%20by-mineiros.io-f32752.svg)](https://mineiros.io/?ref=terraform-aws-iam-policy)
 [![Build Status](https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields&key=5c1d19f4-f0d7-4537-9dcb-5e07bba8dfd3)](https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy)
