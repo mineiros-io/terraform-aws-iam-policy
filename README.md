@@ -137,8 +137,8 @@ for details and use-cases.
 >
 > Consider attaching this policy using the other Mineiros IAM modules
 > [`mineiros-io/terraform-aws-iam-role`](https://github.com/mineiros-io/terraform-aws-iam-role),
-> [`mineiros-io/terraform-aws-iam-group`](https://github.com/mineiros-io/terraform-aws-iam-group),
-> [`mineiros-io/terraform-aws-iam-user`](https://github.com/mineiros-io/terraform-aws-iam-user).
+> `mineiros-io/terraform-aws-iam-group` (coming soon),
+> `mineiros-io/terraform-aws-iam-user` (coming soon).
 >
 > Or consider attaching this policy via the direct resources
 > `aws_iam_role_policy_attachment`,
