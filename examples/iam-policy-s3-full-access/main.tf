@@ -4,13 +4,7 @@
 
 provider "aws" {
   version = "~> 2.0"
-  region  = var.region
-}
-
-variable "region" {
-  type        = string
-  description = "The AWS region to run in. Default is 'eu-west-1'"
-  default     = "eu-west-1"
+  region  = "us-east-1"
 }
 
 # ------------------------------------------------------------------------------
