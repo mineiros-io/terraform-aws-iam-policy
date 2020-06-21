@@ -1,14 +1,12 @@
-[<img src="https://raw.githubusercontent.com/mineiros-io/brand/e9fff6ecb9617dcb405079f301e23fd83b79c5f3/mineiros-primary-logo.svg" width="400"/>](https://mineiros.io/?ref=terraform-aws-iam-policy)
+[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="400"/>][homepage]
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-iam-policy.svg?label=latest&sort=semver)](https://github.com/mineiros-io/terraform-aws-iam-policy/releases)
-[![license](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Terraform Version](https://img.shields.io/badge/terraform-~%3E%200.12.20-623CE4.svg)](https://github.com/hashicorp/terraform/releases)
-[<img src="https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack">](https://join.slack.com/t/mineiros-community/shared_invite/zt-ehidestg-aLGoIENLVs6tvwJ11w9WGg)
+[![license][badge-license]][apache20]
+[![Terraform Version][badge-terraform]][releases-terraform]
+[![Join Slack][badge-slack]][slack]
 
 # Create a S3 Full Access IAM Policy
 
-The code in [main.tf](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/examples/iam-policy-s3-full-access/main.tf)
-creates an IAM Policy named 'S3FullAccess' which grants
+The code in [main.tf] creates an IAM Policy named 'S3FullAccess' which grants
 full access to AWS Simple Storage Service (S3).
 
 - [Example Code](#example-code)
@@ -26,8 +24,7 @@ full access to AWS Simple Storage Service (S3).
 
 ## Example Code
 
-This is an extract from the code in
-[main.tf](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/examples/iam-policy-s3-full-access/main.tf):
+This is an extract from the code in [main.tf]:
 
 ```hcl
 module "policy-s3-full-access" {
@@ -156,9 +153,9 @@ previously created resources again.
 
 ## About Mineiros
 
-Mineiros is a [DevOps as a Service](https://mineiros.io/?ref=terraform-aws-iam-policy) company based in Berlin, Germany. We offer commercial support
+Mineiros is a [DevOps as a Service][homepage] company based in Berlin, Germany. We offer commercial support
 for all of our projects and encourage you to reach out if you have any questions or need help.
-Feel free to send us an email at [hello@mineiros.io](mailto:hello@mineiros.io).
+Feel free to send us an email at [hello@mineiros.io].
 
 We can also help you with:
 
@@ -167,18 +164,42 @@ We can also help you with:
 
 ## Reporting Issues
 
-We use GitHub [Issues](https://github.com/mineiros-io/terraform-aws-iam-policy/issues)
+We use GitHub [Issues]
 to track community reported issues and missing features.
 
 ## Contributing
 
 Contributions are always encouraged and welcome! For the process of accepting changes, we use
-[Pull Requests](https://github.com/mineiros-io/terraform-aws-iam-policy/pulls). If you'd like more information, please
-see our [Contribution Guidelines](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md).
+[Pull Requests]. If you'd like more information, please
+see our [Contribution Guidelines].
 
 ## License
 
 This module is licensed under the Apache License Version 2.0, January 2004.
-Please see [LICENSE](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE) for full details.
+Please see [LICENSE] for full details.
 
 Copyright &copy; 2020 Mineiros GmbH
+
+<!-- References -->
+
+[homepage]: https://mineiros.io/?ref=terraform-aws-iam-policy
+[hello@mineiros.io]: mailto:hello@mineiros.io
+
+[badge-build]: https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields
+[badge-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg
+[badge-terraform]: https://img.shields.io/badge/terraform-0.13%20and%200.12.20+-623CE4.svg?logo=terraform
+[badge-slack]: https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack
+
+[build-status]: https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy
+[releases-github]: https://github.com/mineiros-io/terraform-aws-iam-policy/releases
+[releases-terraform]: https://github.com/hashicorp/terraform/releases
+[apache20]: https://opensource.org/licenses/Apache-2.0
+[slack]: https://join.slack.com/t/mineiros-community/shared_invite/zt-ehidestg-aLGoIENLVs6tvwJ11w9WGg
+
+[main.tf]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/examples/iam-policy-s3-full-access/main.tf
+
+[Issues]: https://github.com/mineiros-io/terraform-aws-iam-policy/issues
+[LICENSE]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE
+[Makefile]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile
+[Pull Requests]: https://github.com/mineiros-io/terraform-aws-iam-policy/pulls
+[Contribution Guidelines]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md
