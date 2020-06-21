@@ -45,7 +45,7 @@ changes.
 ## Update the tests
 
 We also recommend updating the automated tests before updating any code
-(see [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)).
+(see [Test Driven Development]).
 
 That means that you should add or update a test case, run all tests and verify
 that the new test fails with a clear error message and then start implementing
@@ -77,10 +77,8 @@ If everything looks good, they will merge the code and release a new version whi
 
 <!-- References -->
 
-<!-- markdown-link-check-disable -->
 [Pull Requests]: https://github.com/mineiros-io/terraform-aws-iam-policy/pulls
 [pre-commit-file]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/.pre-commit-config.yaml
-<!-- markdown-link-check-enable -->
 
 [Github Flow]: https://guides.github.com/introduction/flow/
 [CODEOWNERS]: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
@@ -90,3 +88,4 @@ If everything looks good, they will merge the code and release a new version whi
 [commit]: https://help.github.com/en/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
 [create a pull request]: https://help.github.com/articles/creating-a-pull-request/
 [Semantic Versioning (SemVer)]: https://semver.org/
+[Test Driven Development]: https://en.wikipedia.org/wiki/Test-driven_development

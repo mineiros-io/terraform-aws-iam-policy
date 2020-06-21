@@ -1,14 +1,14 @@
-[<img src="https://raw.githubusercontent.com/mineiros-io/brand/e9fff6ecb9617dcb405079f301e23fd83b79c5f3/mineiros-primary-logo.svg" width="400"/>](https://mineiros.io/?ref=terraform-aws-iam-policy)
+[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="400"/>][homepage]
 
-[![Build Status](https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields)](https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy)
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-iam-policy.svg?label=latest&sort=semver)](https://github.com/mineiros-io/terraform-aws-iam-policy/releases)
-[![license](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Terraform Version](https://img.shields.io/badge/terraform-~%3E%200.12.20-623CE4.svg)](https://github.com/hashicorp/terraform/releases)
-[<img src="https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack">](https://join.slack.com/t/mineiros-community/shared_invite/zt-ehidestg-aLGoIENLVs6tvwJ11w9WGg)
+[![Build Status][badge-build]][build-status]
+[![GitHub tag (latest SemVer)][badge-semver]][releases-github]
+[![license][badge-license]][apache20]
+[![Terraform Version][badge-terraform]][releases-terraform]
+[![Join Slack][badge-slack]][slack]
 
 # terraform-aws-iam-policy
 
-A [Terraform](https://www.terraform.io) 0.12 base module deploying and managing
+A [Terraform](https://www.terraform.io) 0.12 module for deploying and managing
 [IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) on
 [Amazon Web Services (AWS)](https://aws.amazon.com/).
 
@@ -61,11 +61,7 @@ module "role-s3-full-access" {
 
 ## Module Argument Reference
 
-See
-[variables.tf](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/variables.tf)
-and
-[examples/](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/examples)
-for details and use-cases.
+See [variables.tf] and [examples/] for details and use-cases.
 
 ### Module Configuration
 
@@ -195,26 +191,24 @@ The following attributes are exported by the module:
 
 ## Module Versioning
 
-This Module follows the principles of [Semantic Versioning (SemVer)](https://semver.org/).
+This Module follows the principles of [Semantic Versioning (SemVer)].
 
-Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following constructs:
+Given a version number `MAJOR.MINOR.PATCH`, we increment the:
 
-1. Use the `MAJOR` version for incompatible changes.
-1. Use the `MINOR` version when adding functionality in a backwards compatible manner.
-1. Use the `PATCH` version when introducing backwards compatible bug fixes.
+1. `MAJOR` version when we make incompatible changes,
+2. `MINOR` version when we add functionality in a backwards compatible manner, and
+3. `PATCH` version when we make backwards compatible bug fixes.
 
 ### Backwards compatibility in `0.0.z` and `0.y.z` version
 
-- In the context of initial development, backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is
-  increased. (Initial development)
-- In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is
-  increased. (Pre-release)
+- Backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is increased. (Initial development)
+- Backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is increased. (Pre-release)
 
 ## About Mineiros
 
-Mineiros is a [DevOps as a Service](https://mineiros.io/?ref=terraform-aws-iam-policy) company based in Berlin,
-Germany. We offer commercial support for all of our projects and encourage you to reach out if you have any questions or
-need help. Feel free to send us an email at [hello@mineiros.io](mailto:hello@mineiros.io).
+Mineiros is a [DevOps as a Service][homepage] company based in Berlin, Germany.
+We offer commercial support for all of our projects and encourage you to reach out
+if you have any questions or need help. Feel free to send us an email at [hello@mineiros.io] or join our [Community Slack channel][slack].
 
 We can also help you with:
 
@@ -223,24 +217,50 @@ We can also help you with:
 
 ## Reporting Issues
 
-We use GitHub [Issues](https://github.com/mineiros-io/terraform-aws-iam-policy/issues)
-to track community reported issues and missing features.
+We use GitHub [Issues] to track community reported issues and missing features.
 
 ## Contributing
 
 Contributions are always encouraged and welcome! For the process of accepting changes, we use
-[Pull Requests](https://github.com/mineiros-io/terraform-aws-iam-policy/pulls). If you'd like more information, please
-see our [Contribution Guidelines](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md).
+[Pull Requests]. If you'd like more information, please see our [Contribution Guidelines].
 
 ## Makefile Targets
 
-This repository comes with a handy
-[Makefile](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile).
+This repository comes with a handy [Makefile].
 Run `make help` to see details on each available target.
 
 ## License
 
 This module is licensed under the Apache License Version 2.0, January 2004.
-Please see [LICENSE](https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE) for full details.
+Please see [LICENSE] for full details.
 
-Copyright &copy; 2020 Mineiros GmbH
+Copyright &copy; 2020 [Mineiros GmbH][homepage]
+
+<!-- References -->
+
+[homepage]: https://mineiros.io/?ref=terraform-aws-iam-policy
+[hello@mineiros.io]: mailto:hello@mineiros.io
+
+[badge-build]: https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields
+[badge-semver]: https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-iam-policy.svg?label=latest&sort=semver
+[badge-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg
+[badge-terraform]: https://img.shields.io/badge/terraform-0.13%20and%200.12.20+-623CE4.svg?logo=terraform
+[badge-slack]: https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack
+
+[build-status]: https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy
+[releases-github]: https://github.com/mineiros-io/terraform-aws-iam-policy/releases
+[releases-terraform]: https://github.com/hashicorp/terraform/releases
+[apache20]: https://opensource.org/licenses/Apache-2.0
+[slack]: https://join.slack.com/t/mineiros-community/shared_invite/zt-ehidestg-aLGoIENLVs6tvwJ11w9WGg
+
+[Terraform]: https://www.terraform.io
+[AWS]: https://aws.amazon.com/
+[Semantic Versioning (SemVer)]: https://semver.org/
+
+[variables.tf]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/variables.tf
+[examples/]: https://github.com/mineiros-io/terraform-aws-iam-policy/tree/master/examples
+[Issues]: https://github.com/mineiros-io/terraform-aws-iam-policy/issues
+[LICENSE]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE
+[Makefile]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile
+[Pull Requests]: https://github.com/mineiros-io/terraform-aws-iam-policy/pulls
+[Contribution Guidelines]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md
