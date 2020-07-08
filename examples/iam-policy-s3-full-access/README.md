@@ -28,7 +28,8 @@ This is an extract from the code in [main.tf]:
 
 ```hcl
 module "policy-s3-full-access" {
-  source = "git@github.com:mineiros-io/terraform-aws-iam-policy.git?ref=v0.0.1"
+  source  = "mineiros-io/iam-policy/aws"
+  version = "~> 0.1.0"
 
   # name of the policy
   name = "S3FullAccess"
