@@ -29,7 +29,7 @@ This is an extract from the code in [main.tf]:
 ```hcl
 module "policy-s3-full-access" {
   source  = "mineiros-io/iam-policy/aws"
-  version = "~> 0.1.0"
+  version = "~> 0.1.1"
 
   # name of the policy
   name = "S3FullAccess"
