@@ -18,7 +18,7 @@ variable "policy" {
 }
 
 variable "policy_statements" {
-  type        = set(any)
+  type        = any
   description = "(Required, conflicts with policy) A list of policy statements to build the policy document from."
   default     = []
 }

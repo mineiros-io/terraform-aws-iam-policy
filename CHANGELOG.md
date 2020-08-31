@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1]
+### Fixed
+- Fix type of `policy_statements` argument
+
 ## [0.1.0]
 ### Changed
 - Add `module_enabled` tests
@@ -27,8 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add unit tests for basic use cases
 
 <!-- markdown-link-check-disable -->
-[Unreleased]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.0.2...v0.1.0
+[Unreleased]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.1.0...v0.1.1
 <!-- markdown-link-check-disabled -->
+[0.1.0]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.0.2...v0.1.0
 [0.0.2]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/mineiros-io/terraform-aws-iam-policy/releases/tag/v0.0.1
