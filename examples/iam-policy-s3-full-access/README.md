@@ -29,7 +29,7 @@ This is an extract from the code in [main.tf]:
 ```hcl
 module "policy-s3-full-access" {
   source  = "mineiros-io/iam-policy/aws"
-  version = "~> 0.2.0"
+  version = "~> 0.4.0"
 
   # name of the policy
   name = "S3FullAccess"
@@ -146,6 +146,7 @@ previously created resources again.
 ## External documentation for the resources created in this example
 
 - Terraform AWS Provider Documentation:
+
   - https://www.terraform.io/docs/providers/aws/r/iam_policy.html
 
 - AWS Documentation:
@@ -185,22 +186,18 @@ Copyright &copy; 2020 Mineiros GmbH
 
 [homepage]: https://mineiros.io/?ref=terraform-aws-iam-policy
 [hello@mineiros.io]: mailto:hello@mineiros.io
-
 [badge-build]: https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields
 [badge-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg
 [badge-terraform]: https://img.shields.io/badge/terraform-0.13%20and%200.12.20+-623CE4.svg?logo=terraform
 [badge-slack]: https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack
-
 [build-status]: https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy
 [releases-github]: https://github.com/mineiros-io/terraform-aws-iam-policy/releases
 [releases-terraform]: https://github.com/hashicorp/terraform/releases
 [apache20]: https://opensource.org/licenses/Apache-2.0
 [slack]: https://join.slack.com/t/mineiros-community/shared_invite/zt-ehidestg-aLGoIENLVs6tvwJ11w9WGg
-
 [main.tf]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/examples/iam-policy-s3-full-access/main.tf
-
-[Issues]: https://github.com/mineiros-io/terraform-aws-iam-policy/issues
-[LICENSE]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE
-[Makefile]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile
-[Pull Requests]: https://github.com/mineiros-io/terraform-aws-iam-policy/pulls
-[Contribution Guidelines]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md
+[issues]: https://github.com/mineiros-io/terraform-aws-iam-policy/issues
+[license]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE
+[makefile]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile
+[pull requests]: https://github.com/mineiros-io/terraform-aws-iam-policy/pulls
+[contribution guidelines]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md

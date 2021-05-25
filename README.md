@@ -12,8 +12,8 @@ A [Terraform](https://www.terraform.io) base module for deploying and managing
 [IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) on
 [Amazon Web Services (AWS)](https://aws.amazon.com/).
 
-***This module supports Terraform v0.13 as well as v0.12.20 and above
-and is compatible with the terraform AWS provider v3 as well as v2.0 and above.***
+**_This module supports Terraform v0.15, v0.14, v0.13, as well as v0.12.20 and above
+and is compatible with the terraform AWS provider v3 as well as v2.0 and above._**
 
 - [Module Features](#module-features)
 - [Getting Started](#getting-started)
@@ -47,7 +47,7 @@ Basic usage for creating an IAM Policy granting full access to AWS Simple Storag
 ```hcl
 module "role-s3-full-access" {
   source  = "mineiros-io/iam-policy/aws"
-  version = "~> 0.2.0"
+  version = "~> 0.4.0"
 
   name = "S3FullAccess"
 
@@ -69,12 +69,12 @@ See [variables.tf] and [examples/] for details and use-cases.
 
 ### Module Configuration
 
-- **`module_enabled`**: *(Optional `bool`)*
+- **`module_enabled`**: _(Optional `bool`)_
 
   Specifies whether resources in the module will be created.
   Default is `true`.
 
-- **`module_depends_on`**: *(Optional `list(any)`)*
+- **`module_depends_on`**: _(Optional `list(any)`)_
 
   A list of dependencies. Any object can be assigned to this list to define a hidden
   external dependency.
@@ -86,12 +86,12 @@ See [variables.tf] and [examples/] for details and use-cases.
 - **`policy`**: **(Required `string`) The policy document.**
 
   This is a JSON formatted string representing an IAM Policy Document.
-  *(only required if `policy_statements` is not set)*
+  _(only required if `policy_statements` is not set)_
 
 - **`policy_statements`**: **(Required `list(statement)`)**
 
   List of IAM policy statements to attach to the role as an inline policy.
-  *(only required if `policy` is not set)*
+  _(only required if `policy` is not set)_
 
   ```hcl
   policy_statements = [
@@ -123,19 +123,19 @@ See [variables.tf] and [examples/] for details and use-cases.
   ]
   ```
 
-- **`description`**: *(Optional `string`, Forces new resource)*
+- **`description`**: _(Optional `string`, Forces new resource)_
 
   Description of the IAM policy. Default is `""`.
 
-- **`name`**: *(Optional `string`, Forces new resource)*
+- **`name`**: _(Optional `string`, Forces new resource)_
 
   The name of the policy. If omitted, Terraform will assign a random, unique name.
 
-- **`name_prefix`**: *(Optional `string`, Forces new resource)* *(Conflicts with `name`.)*
+- **`name_prefix`**: _(Optional `string`, Forces new resource)_ _(Conflicts with `name`.)_
 
   Creates a unique name beginning with the specified prefix.
 
-- **`path`**: *(Optional `string`)*
+- **`path`**: _(Optional `string`)_
 
   Path in which to create the policy. Default is `"/"`
 
@@ -160,19 +160,19 @@ See [variables.tf] and [examples/] for details and use-cases.
 > `aws_iam_group_policy_attachment` instead.
 > These modules and/or resources do not enforce exclusive attachment of an IAM policy.
 
-- **`attachment_name`**: *(Optional `string`)*
+- **`attachment_name`**: _(Optional `string`)_
 
   The name of the attachment. Defaults to the `name` of the policy.
 
-- **`users`**: *(Optional `list(string)`)*
+- **`users`**: _(Optional `list(string)`)_
 
   The user(s) the policy should be applied to
 
-- **`roles`**: *(Optional `list(string)`)*
+- **`roles`**: _(Optional `list(string)`)_
 
   The role(s) the policy should be applied to
 
-- **`groups`**: *(Optional `list(string)`)*
+- **`groups`**: _(Optional `list(string)`)_
 
   The group(s) the policy should be applied to
 
@@ -186,6 +186,7 @@ The following attributes are exported by the module:
 ## External Documentation
 
 - AWS Documentation:
+
   - https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
   - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
 
@@ -240,37 +241,31 @@ Run `make help` to see details on each available target.
 This module is licensed under the Apache License Version 2.0, January 2004.
 Please see [LICENSE] for full details.
 
-Copyright &copy; 2020 [Mineiros GmbH][homepage]
+Copyright &copy; 2020-2021 [Mineiros GmbH][homepage]
 
 <!-- References -->
 
 [homepage]: https://mineiros.io/?ref=terraform-aws-iam-policy
 [hello@mineiros.io]: mailto:hello@mineiros.io
-
-
-[badge-build]: https://github.com/mineiros-io/terraform-aws-iam-policy/workflows/CI/CD%20Pipeline/badge.svg
+[badge-build]: https://github.com/mineiros-io/terraform-aws-iam-policy/workflows/Tests/badge.svg
 [badge-semver]: https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-iam-policy.svg?label=latest&sort=semver
 [badge-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg
-[badge-terraform]: https://img.shields.io/badge/terraform-0.13%20and%200.12.20+-623CE4.svg?logo=terraform
+[badge-terraform]: https://img.shields.io/badge/terraform-0.15%20|%200.14%20|%200.13%20|%200.12.20+-623CE4.svg?logo=terraform
 [badge-slack]: https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack
-
 [badge-tf-aws]: https://img.shields.io/badge/AWS-3%20and%202.0+-F8991D.svg?logo=terraform
 [releases-aws-provider]: https://github.com/terraform-providers/terraform-provider-aws/releases
-
 [build-status]: https://github.com/mineiros-io/terraform-aws-iam-policy/actions
 [releases-github]: https://github.com/mineiros-io/terraform-aws-iam-policy/releases
 [releases-terraform]: https://github.com/hashicorp/terraform/releases
 [apache20]: https://opensource.org/licenses/Apache-2.0
 [slack]: https://join.slack.com/t/mineiros-community/shared_invite/zt-ehidestg-aLGoIENLVs6tvwJ11w9WGg
-
-[Terraform]: https://www.terraform.io
-[AWS]: https://aws.amazon.com/
-[Semantic Versioning (SemVer)]: https://semver.org/
-
+[terraform]: https://www.terraform.io
+[aws]: https://aws.amazon.com/
+[semantic versioning (semver)]: https://semver.org/
 [variables.tf]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/variables.tf
 [examples/]: https://github.com/mineiros-io/terraform-aws-iam-policy/tree/master/examples
-[Issues]: https://github.com/mineiros-io/terraform-aws-iam-policy/issues
-[LICENSE]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE
-[Makefile]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile
-[Pull Requests]: https://github.com/mineiros-io/terraform-aws-iam-policy/pulls
-[Contribution Guidelines]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md
+[issues]: https://github.com/mineiros-io/terraform-aws-iam-policy/issues
+[license]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/LICENSE
+[makefile]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/Makefile
+[pull requests]: https://github.com/mineiros-io/terraform-aws-iam-policy/pulls
+[contribution guidelines]: https://github.com/mineiros-io/terraform-aws-iam-policy/blob/master/CONTRIBUTING.md
