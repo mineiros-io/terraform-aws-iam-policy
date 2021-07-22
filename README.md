@@ -12,7 +12,7 @@ A [Terraform](https://www.terraform.io) base module for deploying and managing
 [IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) on
 [Amazon Web Services (AWS)](https://aws.amazon.com/).
 
-**_This module supports Terraform v0.15, v0.14, v0.13, as well as v0.12.20 and above
+**_This module supports Terraform v1.0, v0.15, v0.14, v0.13, as well as v0.12.20 and above
 and is compatible with the terraform AWS provider v3 as well as v2.0 and above._**
 
 - [Module Features](#module-features)
