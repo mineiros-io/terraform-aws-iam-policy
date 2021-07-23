@@ -188,7 +188,7 @@ Copyright &copy; 2020 Mineiros GmbH
 [hello@mineiros.io]: mailto:hello@mineiros.io
 [badge-build]: https://mineiros.semaphoreci.com/badges/terraform-aws-iam-policy/branches/master.svg?style=shields
 [badge-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg
-[badge-terraform]: https://img.shields.io/badge/terraform-0.13%20and%200.12.20+-623CE4.svg?logo=terraform
+[badge-terraform]: https://img.shields.io/badge/terraform-1.x%20|%200.14%20|%200.13%20and%200.12.20+-623CE4.svg?logo=terraform
 [badge-slack]: https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack
 [build-status]: https://mineiros.semaphoreci.com/projects/terraform-aws-iam-policy
 [releases-github]: https://github.com/mineiros-io/terraform-aws-iam-policy/releases
