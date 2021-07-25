@@ -12,7 +12,7 @@ A [Terraform](https://www.terraform.io) base module for deploying and managing
 [IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) on
 [Amazon Web Services (AWS)](https://aws.amazon.com/).
 
-**_This module supports Terraform v1.0, v0.15, v0.14, v0.13, as well as v0.12.20 and above
+**_This module supports Terraform v1.x, v0.15, v0.14, v0.13, as well as v0.12.20 and above
 and is compatible with the terraform AWS provider v3 as well as v2.0 and above._**
 
 - [Module Features](#module-features)
@@ -250,7 +250,7 @@ Copyright &copy; 2020-2021 [Mineiros GmbH][homepage]
 [badge-build]: https://github.com/mineiros-io/terraform-aws-iam-policy/workflows/Tests/badge.svg
 [badge-semver]: https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-iam-policy.svg?label=latest&sort=semver
 [badge-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg
-[badge-terraform]: https://img.shields.io/badge/terraform-0.15%20|%200.14%20|%200.13%20|%200.12.20+-623CE4.svg?logo=terraform
+[badge-terraform]: https://img.shields.io/badge/terraform-1.x%20|%200.14%20|%200.13%20and%200.12.20+-623CE4.svg?logo=terraform
 [badge-slack]: https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack
 [badge-tf-aws]: https://img.shields.io/badge/AWS-3%20and%202.0+-F8991D.svg?logo=terraform
 [releases-aws-provider]: https://github.com/terraform-providers/terraform-provider-aws/releases
