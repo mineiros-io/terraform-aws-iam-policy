@@ -12,7 +12,7 @@ provider "aws" {
 
 module "policy-s3-full-access" {
   source  = "mineiros-io/iam-policy/aws"
-  version = "~> 0.4.0"
+  version = "~> 0.5.0"
 
   # name of the policy
   name = "S3FullAccess"

@@ -47,7 +47,7 @@ Basic usage for creating an IAM Policy granting full access to AWS Simple Storag
 ```hcl
 module "role-s3-full-access" {
   source  = "mineiros-io/iam-policy/aws"
-  version = "~> 0.4.0"
+  version = "~> 0.5.0"
 
   name = "S3FullAccess"
 
