@@ -35,7 +35,7 @@ and is compatible with the terraform AWS provider v3 as well as v2.0 and above._
 
 ## Module Features
 
-You can create a custom AWS IAM Policy that can be attached to other IAM resources as users, roles or groups.
+You can create a custom AWS IAM Policy that can be attached to other IAM resources such as users, roles or groups.
 
 - **Standard Module Features**: Create a custom IAM Policy.
 - **Extended Module Features**: Create exclusive policy attachments to roles, groups and/or users.
@@ -90,7 +90,7 @@ See [variables.tf] and [examples/] for details and use-cases.
 
 - **`policy_statements`**: **(Required `list(statement)`)**
 
-  List of IAM policy statements to attach to the role as an inline policy.
+  A list of policy statements to build the policy document from.
   _(only required if `policy` is not set)_
 
   ```hcl
