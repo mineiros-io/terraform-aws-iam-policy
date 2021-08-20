@@ -12,4 +12,16 @@ module "test" {
   source = "../.."
 
   module_enabled = false
+
+  policy_statements = [
+    {
+      effect = "Deny"
+
+      actions = [
+        "logs:CreateLogGroups",
+      ]
+
+      resources = ["*"]
+    },
+  ]
 }
