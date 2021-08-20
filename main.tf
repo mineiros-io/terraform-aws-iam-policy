@@ -18,7 +18,7 @@
 
 locals {
   create_policy = var.policy == null && length(var.policy_statements) > 0
-  policy        = local.create_policy ? data.aws_iam_policy_document.policy[0].json : var.policy
+  policy        = var.module_enabled ? (local.create_policy ? data.aws_iam_policy_document.policy[0].json : var.policy) : null
 }
 
 resource "aws_iam_policy" "policy" {
