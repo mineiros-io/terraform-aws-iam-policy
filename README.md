@@ -74,6 +74,12 @@ See [variables.tf] and [examples/] for details and use-cases.
   Specifies whether resources in the module will be created.
   Default is `true`.
 
+- **`module_tags`**: _(Optional `map(string)`)_
+
+  A map of tags that will be applied to all created resources that accept tags. Tags defined with 'module_tags' can be
+  overwritten by resource-specific tags.
+  Default is `{}`.
+
 - **`module_depends_on`**: _(Optional `list(any)`)_
 
   A list of dependencies. Any object can be assigned to this list to define a hidden
@@ -175,6 +181,14 @@ See [variables.tf] and [examples/] for details and use-cases.
 - **`groups`**: _(Optional `list(string)`)_
 
   The group(s) the policy should be applied to
+- **`groups`**: _(Optional `list(string)`)_
+
+  The group(s) the policy should be applied to
+
+- **`tags`**: _(Optional `map(string)`)_
+
+  A map of tags that will be applied to the created IAM policy.
+  Default is `{}`.
 
 ## Module Attributes Reference
 
