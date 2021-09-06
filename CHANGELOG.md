@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.2]
+
 ### Added
 
 - Added `module_tags` and `tags` variables.
@@ -78,11 +80,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdown-link-check-disable -->
 
-[unreleased]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.5.1...HEAD
-[0.5.1]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.5.0...v0.5.1
+[unreleased]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.5.2...HEAD
+[0.5.2]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.5.1...v0.5.2
 
 <!-- markdown-link-check-disabled -->
 
+[0.5.1]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.2.0...v0.4.0
 [0.2.0]: https://github.com/mineiros-io/terraform-aws-iam-policy/compare/v0.1.1...v0.2.0
