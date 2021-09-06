@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `module_tags` and `tags` variables.
+
 ## [0.5.1]
 
 ### Fixed
@@ -14,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix reference in policy when `module_enabled = false`
 
 ## [0.5.0]
+
+### Added
 
 - Add support for Terraform `v1`
 

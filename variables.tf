@@ -1,15 +1,7 @@
-# ------------------------------------------------------------------------------
-# ENVIRONMENT VARIABLES
-# Define these secrets as environment variables.
-# ------------------------------------------------------------------------------
-
-# AWS_ACCESS_KEY_ID
-# AWS_SECRET_ACCESS_KEY
-
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
 # REQUIRED PARAMETERS
 # These variables must be set when using this module.
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
 
 variable "policy" {
   type        = string
@@ -23,10 +15,10 @@ variable "policy_statements" {
   default     = []
 }
 
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 # These variables have defaults, but may be overridden.
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
 
 variable "description" {
   type        = string
@@ -78,20 +70,32 @@ variable "groups" {
   default     = null
 }
 
+variable "tags" {
+  type        = map(string)
+  description = "(Optional) A map of tags that will be applied to the created IAM policy."
+  default     = {}
+}
 
 # ------------------------------------------------------------------------------
 # MODULE CONFIGURATION PARAMETERS
 # These variables are used to configure the module.
 # See https://medium.com/mineiros/the-ultimate-guide-on-how-to-write-terraform-modules-part-1-81f86d31f024
 # ------------------------------------------------------------------------------
+
 variable "module_enabled" {
   type        = bool
   description = "(Optional) Whether to create resources within the module or not. Default is true."
   default     = true
 }
 
+variable "module_tags" {
+  type        = map(string)
+  description = "(Optional) A map of tags that will be applied to all created resources that accept tags. Tags defined with 'module_tags' can be overwritten by resource-specific tags."
+  default     = {}
+}
+
 variable "module_depends_on" {
   type        = any
-  description = "(Optional) A list of external resources the module depends_on. Default is []."
+  description = "(Optional) A list of external resources the module depends_on."
   default     = []
 }
