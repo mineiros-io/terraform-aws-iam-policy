@@ -1,10 +1,10 @@
-[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="400"/>][homepage]
+[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="400"/>](https://mineiros.io/?ref=terraform-aws-iam-policy)
 
-[![Build Status][badge-build]][build-status]
-[![GitHub tag (latest SemVer)][badge-semver]][releases-github]
-[![Terraform Version][badge-terraform]][releases-terraform]
-[![AWS Provider Version][badge-tf-aws]][releases-aws-provider]
-[![Join Slack][badge-slack]][slack]
+[![Build Status](https://github.com/mineiros-io/terraform-aws-iam-policy/workflows/Tests/badge.svg)](https://github.com/mineiros-io/terraform-aws-iam-policy/actions)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-iam-policy.svg?label=latest&sort=semver)](https://github.com/mineiros-io/terraform-aws-iam-policy/releases)
+[![Terraform Version](https://img.shields.io/badge/terraform-1.x%20|%200.14%20|%200.13%20and%200.12.20+-623CE4.svg?logo=terraform)](https://github.com/hashicorp/terraform/releases)
+[![AWS Provider Version](https://img.shields.io/badge/AWS-3%20and%202.0+-F8991D.svg?logo=terraform)](https://github.com/terraform-providers/terraform-provider-aws/releases)
+[![Join Slack](https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack)](https://mineiros.io/slack)
 
 # terraform-aws-iam-policy
 
@@ -15,6 +15,7 @@ A [Terraform](https://www.terraform.io) base module for deploying and managing
 **_This module supports Terraform v1.x, v0.15, v0.14, v0.13, as well as v0.12.20 and above
 and is compatible with the terraform AWS provider v3 as well as v2.0 and above._**
 
+
 - [Module Features](#module-features)
 - [Getting Started](#getting-started)
 - [Module Argument Reference](#module-argument-reference)
@@ -23,8 +24,10 @@ and is compatible with the terraform AWS provider v3 as well as v2.0 and above._
     - [Main Resource Configuration](#main-resource-configuration)
     - [Extended Resource configuration](#extended-resource-configuration)
       - [Policy attachment](#policy-attachment)
-- [Module Attributes Reference](#module-attributes-reference)
+- [Module Outputs](#module-outputs)
 - [External Documentation](#external-documentation)
+  - [AWS Documentation](#aws-documentation)
+  - [Terraform AWS Provider Documentation](#terraform-aws-provider-documentation)
 - [Module Versioning](#module-versioning)
   - [Backwards compatibility in `0.0.z` and `0.y.z` version](#backwards-compatibility-in-00z-and-0yz-version)
 - [About Mineiros](#about-mineiros)
@@ -69,18 +72,20 @@ See [variables.tf] and [examples/] for details and use-cases.
 
 ### Module Configuration
 
-- **`module_enabled`**: _(Optional `bool`)_
+- [**`module_enabled`**](#var-module_enabled): *(Optional `bool`)*<a name="var-module_enabled"></a>
 
   Specifies whether resources in the module will be created.
+
   Default is `true`.
 
-- **`module_tags`**: _(Optional `map(string)`)_
+- [**`module_tags`**](#var-module_tags): *(Optional `map(string)`)*<a name="var-module_tags"></a>
 
   A map of tags that will be applied to all created resources that accept tags. Tags defined with 'module_tags' can be
   overwritten by resource-specific tags.
+
   Default is `{}`.
 
-- **`module_depends_on`**: _(Optional `list(any)`)_
+- [**`module_depends_on`**](#var-module_depends_on): *(Optional `list(any)`)*<a name="var-module_depends_on"></a>
 
   A list of dependencies. Any object can be assigned to this list to define a hidden
   external dependency.
@@ -89,17 +94,16 @@ See [variables.tf] and [examples/] for details and use-cases.
 
 #### Main Resource Configuration
 
-- **`policy`**: **(Required `string`) The policy document.**
+- [**`policy`**](#var-policy): *(**Required** `string`)*<a name="var-policy"></a>
 
   This is a JSON formatted string representing an IAM Policy Document.
   _(only required if `policy_statements` is not set)_
 
-- **`policy_statements`**: **(Required `list(statement)`)**
+- [**`policy_statements`**](#var-policy_statements): *(**Required** `list(statement)`)*<a name="var-policy_statements"></a>
 
   A list of policy statements to build the policy document from.
-  _(only required if `policy` is not set)_
-
-  ```hcl
+    _(only required if `policy` is not set)_
+readme_example = <<-END
   policy_statements = [
     {
       sid = "FullS3Access"
@@ -127,33 +131,32 @@ See [variables.tf] and [examples/] for details and use-cases.
       ]
     }
   ]
-  ```
 
-- **`description`**: _(Optional `string`, Forces new resource)_
+- [**`description`**](#var-description): *(Optional `string`)*<a name="var-description"></a>
 
-  Description of the IAM policy. Default is `""`.
+  Description of the IAM policy. Forces new resource.
 
-- **`name`**: _(Optional `string`, Forces new resource)_
+- [**`name`**](#var-name): *(Optional `string`)*<a name="var-name"></a>
 
-  The name of the policy. If omitted, Terraform will assign a random, unique name.
+  The name of the policy. If omitted, Terraform will assign a random, unique name. Forces new resource.
 
-- **`name_prefix`**: _(Optional `string`, Forces new resource)_ _(Conflicts with `name`.)_
+- [**`name_prefix`**](#var-name_prefix): *(Optional `string`)*<a name="var-name_prefix"></a>
 
-  Creates a unique name beginning with the specified prefix.
+  Creates a unique name beginning with the specified prefix. Forces new resource. Conflicts with `name`.
 
-- **`path`**: _(Optional `string`)_
+- [**`path`**](#var-path): *(Optional `string`)*<a name="var-path"></a>
 
-  Path in which to create the policy. Default is `"/"`
+  Path in which to create the policy.
+
+  Default is `"/"`.
 
 #### Extended Resource configuration
 
 ##### Policy attachment
 
 > **WARNING:** The used `aws_iam_policy_attachment` resource creates exclusive IAM policies attachments.
-> Across the entire AWS account, all of the users/roles/groups to which a single policy
-> is attached must be declared by a single `aws_iam_policy_attachment` resource.
-> This means that even any users/roles/groups that have the attached policy via any other mechanism
-> (including other Terraform resources) will have that attached policy revoked by this resource.
+> Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single `aws_iam_policy_attachment` resource.
+> This means that even any users/roles/groups that have the attached policy via any other mechanism (including other Terraform resources) will have that attached policy revoked by this resource.
 >
 > Consider attaching this policy using the other Mineiros IAM modules
 > [`mineiros-io/terraform-aws-iam-role`](https://github.com/mineiros-io/terraform-aws-iam-role),
@@ -166,31 +169,29 @@ See [variables.tf] and [examples/] for details and use-cases.
 > `aws_iam_group_policy_attachment` instead.
 > These modules and/or resources do not enforce exclusive attachment of an IAM policy.
 
-- **`attachment_name`**: _(Optional `string`)_
+- [**`attachment_name`**](#var-attachment_name): *(Optional `string`)*<a name="var-attachment_name"></a>
 
   The name of the attachment. Defaults to the `name` of the policy.
 
-- **`users`**: _(Optional `list(string)`)_
+- [**`users`**](#var-users): *(Optional `list(string)`)*<a name="var-users"></a>
 
-  The user(s) the policy should be applied to
+  The user(s) the policy should be applied to.
 
-- **`roles`**: _(Optional `list(string)`)_
+- [**`roles`**](#var-roles): *(Optional `list(string)`)*<a name="var-roles"></a>
 
-  The role(s) the policy should be applied to
+  The role(s) the policy should be applied to.
 
-- **`groups`**: _(Optional `list(string)`)_
+- [**`groups`**](#var-groups): *(Optional `list(string)`)*<a name="var-groups"></a>
 
-  The group(s) the policy should be applied to
-- **`groups`**: _(Optional `list(string)`)_
+  The group(s) the policy should be applied to.
 
-  The group(s) the policy should be applied to
-
-- **`tags`**: _(Optional `map(string)`)_
+- [**`tags`**](#var-tags): *(Optional `map(string)`)*<a name="var-tags"></a>
 
   A map of tags that will be applied to the created IAM policy.
+
   Default is `{}`.
 
-## Module Attributes Reference
+## Module Outputs
 
 The following attributes are exported by the module:
 
@@ -199,14 +200,15 @@ The following attributes are exported by the module:
 
 ## External Documentation
 
-- AWS Documentation:
+### AWS Documentation
 
-  - https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
-  - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
 
-- Terraform AWS Provider Documentation:
-  - https://www.terraform.io/docs/providers/aws/r/iam_policy.html
-  - https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html
+### Terraform AWS Provider Documentation
+
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy_attachment
 
 ## Module Versioning
 
@@ -255,7 +257,8 @@ Run `make help` to see details on each available target.
 This module is licensed under the Apache License Version 2.0, January 2004.
 Please see [LICENSE] for full details.
 
-Copyright &copy; 2020-2021 [Mineiros GmbH][homepage]
+Copyright &copy; 2020-2022 [Mineiros GmbH][homepage]
+
 
 <!-- References -->
 
