@@ -102,27 +102,30 @@ See [variables.tf] and [examples/] for details and use-cases.
 - [**`policy_statements`**](#var-policy_statements): *(**Required** `list(statement)`)*<a name="var-policy_statements"></a>
 
   A list of policy statements to build the policy document from.
-    _(only required if `policy` is not set)_
-readme_example = <<-END
+_(only required if `policy` is not set)_
+
+  Example:
+
+  ```hcl
   policy_statements = [
     {
       sid = "FullS3Access"
-
+  
       effect = "Allow"
-
+  
       actions     = ["s3:*"]
       not_actions = []
-
+  
       resources     = ["*"]
       not_resources = []
-
+  
       principals = [
         { type        = "AWS"
           identifiers = ["arn:aws:iam::123456789012:root"]
         }
       ]
       not_principals = []
-
+  
       conditions = [
         { test     = "Bool"
           variable = "aws:MultiFactorAuthPresent"
@@ -131,6 +134,7 @@ readme_example = <<-END
       ]
     }
   ]
+  ```
 
 - [**`description`**](#var-description): *(Optional `string`)*<a name="var-description"></a>
 
