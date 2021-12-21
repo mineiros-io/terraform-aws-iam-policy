@@ -137,7 +137,8 @@ section {
           readme_type = "list(statement)"
           description = <<-END
             A list of policy statements to build the policy document from.
-              _(only required if `policy` is not set)_
+            _(only required if `policy` is not set)_
+          END
           readme_example = <<-END
             policy_statements = [
               {
