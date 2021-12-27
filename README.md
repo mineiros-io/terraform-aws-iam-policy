@@ -80,15 +80,13 @@ See [variables.tf] and [examples/] for details and use-cases.
 
 - [**`module_tags`**](#var-module_tags): *(Optional `map(string)`)*<a name="var-module_tags"></a>
 
-  A map of tags that will be applied to all created resources that accept tags. Tags defined with 'module_tags' can be
-  overwritten by resource-specific tags.
+  A map of tags that will be applied to all created resources that accept tags. Tags defined with `module_tags` can be overwritten by resource-specific tags.
 
   Default is `{}`.
 
 - [**`module_depends_on`**](#var-module_depends_on): *(Optional `list(any)`)*<a name="var-module_depends_on"></a>
 
-  A list of dependencies. Any object can be assigned to this list to define a hidden
-  external dependency.
+  A list of dependencies. Any object can be assigned to this list to define a hidden external dependency.
 
 ### Top-level Arguments
 
@@ -97,7 +95,7 @@ See [variables.tf] and [examples/] for details and use-cases.
 - [**`policy`**](#var-policy): *(**Required** `string`)*<a name="var-policy"></a>
 
   This is a JSON formatted string representing an IAM Policy Document.
-  _(only required if `policy_statements` is not set)_
+_(only required if `policy_statements` is not set)_
 
 - [**`policy_statements`**](#var-policy_statements): *(**Required** `list(statement)`)*<a name="var-policy_statements"></a>
 
@@ -120,14 +118,16 @@ _(only required if `policy` is not set)_
       not_resources = []
   
       principals = [
-        { type        = "AWS"
+        {
+          type        = "AWS"
           identifiers = ["arn:aws:iam::123456789012:root"]
         }
       ]
       not_principals = []
   
       conditions = [
-        { test     = "Bool"
+        {
+          test     = "Bool"
           variable = "aws:MultiFactorAuthPresent"
           values   = [ "true" ]
         }
