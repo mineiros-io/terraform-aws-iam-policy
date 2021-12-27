@@ -102,16 +102,14 @@ section {
         type        = map(string)
         default     = {}
         description = <<-END
-          A map of tags that will be applied to all created resources that accept tags. Tags defined with 'module_tags' can be
-            overwritten by resource-specific tags.
+          A map of tags that will be applied to all created resources that accept tags. Tags defined with `module_tags` can be overwritten by resource-specific tags.
         END
       }
 
       variable "module_depends_on" {
         type        = list(any)
         description = <<-END
-          A list of dependencies. Any object can be assigned to this list to define a hidden
-            external dependency.
+          A list of dependencies. Any object can be assigned to this list to define a hidden external dependency.
         END
       }
     }
@@ -127,7 +125,7 @@ section {
           type        = string
           description = <<-END
             This is a JSON formatted string representing an IAM Policy Document.
-              _(only required if `policy_statements` is not set)_
+            _(only required if `policy_statements` is not set)_
           END
         }
 
@@ -153,14 +151,16 @@ section {
                 not_resources = []
 
                 principals = [
-                  { type        = "AWS"
+                  {
+                    type        = "AWS"
                     identifiers = ["arn:aws:iam::123456789012:root"]
                   }
                 ]
                 not_principals = []
 
                 conditions = [
-                  { test     = "Bool"
+                  {
+                    test     = "Bool"
                     variable = "aws:MultiFactorAuthPresent"
                     values   = [ "true" ]
                   }
