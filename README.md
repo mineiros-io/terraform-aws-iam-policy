@@ -95,12 +95,12 @@ See [variables.tf] and [examples/] for details and use-cases.
 - [**`policy`**](#var-policy): *(**Required** `string`)*<a name="var-policy"></a>
 
   This is a JSON formatted string representing an IAM Policy Document.
-_(only required if `policy_statements` is not set)_
+  _(only required if `policy_statements` is not set)_
 
 - [**`policy_statements`**](#var-policy_statements): *(**Required** `list(statement)`)*<a name="var-policy_statements"></a>
 
   A list of policy statements to build the policy document from.
-_(only required if `policy` is not set)_
+  _(only required if `policy` is not set)_
 
   Example:
 
@@ -108,15 +108,15 @@ _(only required if `policy` is not set)_
   policy_statements = [
     {
       sid = "FullS3Access"
-  
+
       effect = "Allow"
-  
+
       actions     = ["s3:*"]
       not_actions = []
-  
+
       resources     = ["*"]
       not_resources = []
-  
+
       principals = [
         {
           type        = "AWS"
@@ -124,7 +124,7 @@ _(only required if `policy` is not set)_
         }
       ]
       not_principals = []
-  
+
       conditions = [
         {
           test     = "Bool"
@@ -199,8 +199,13 @@ _(only required if `policy` is not set)_
 
 The following attributes are exported by the module:
 
-- **`policy`**: The `aws_iam_policy` object.
-- **`policy_attachment`**: The `aws_iam_policy_attachment` object.
+- [**`policy`**](#output-policy): *(`object(policy)`)*<a name="output-policy"></a>
+
+  The `aws_iam_policy` object.
+
+- [**`policy_attachment`**](#output-policy_attachment): *(`object(policy_attachment)`)*<a name="output-policy_attachment"></a>
+
+  The `aws_iam_policy_attachment` object.
 
 ## External Documentation
 
