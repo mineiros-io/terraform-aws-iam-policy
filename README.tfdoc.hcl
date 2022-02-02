@@ -130,10 +130,9 @@ section {
         }
 
         variable "policy_statements" {
-          required    = true
-          type        = any
-          readme_type = "list(statement)"
-          description = <<-END
+          required       = true
+          type           = list(statement)
+          description    = <<-END
             A list of policy statements to build the policy document from.
             _(only required if `policy` is not set)_
           END
@@ -266,10 +265,21 @@ section {
     title   = "Module Outputs"
     content = <<-END
       The following attributes are exported by the module:
-
-      - **`policy`**: The `aws_iam_policy` object.
-      - **`policy_attachment`**: The `aws_iam_policy_attachment` object.
     END
+
+    output "policy" {
+      type        = object(policy)
+      description = <<-END
+        The `aws_iam_policy` object.
+      END
+    }
+
+    output "policy_attachment" {
+      type        = object(policy_attachment)
+      description = <<-END
+        The `aws_iam_policy_attachment` object.
+      END
+    }
   }
 
   section {
