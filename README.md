@@ -49,8 +49,7 @@ Basic usage for creating an IAM Policy granting full access to AWS Simple Storag
 
 ```hcl
 module "role-s3-full-access" {
-  source  = "mineiros-io/iam-policy/aws"
-  version = "~> 0.5.0"
+  source  = "git@github.com:mineiros-io/terraform-aws-iam-policy.git?ref=v0.5.2"
 
   name = "S3FullAccess"
 
@@ -84,7 +83,7 @@ See [variables.tf] and [examples/] for details and use-cases.
 
   Default is `{}`.
 
-- [**`module_depends_on`**](#var-module_depends_on): *(Optional `list(any)`)*<a name="var-module_depends_on"></a>
+- [**`module_depends_on`**](#var-module_depends_on): *(Optional `list(object)`)*<a name="var-module_depends_on"></a>
 
   A list of dependencies. Any object can be assigned to this list to define a hidden external dependency.
 
