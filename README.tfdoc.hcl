@@ -62,8 +62,10 @@ section {
 
       ```hcl
       module "role-s3-full-access" {
-        source = "mineiros-io/iam-policy/aws"
+        source  = "mineiros-io/iam-policy/aws"
         version = "~> 0.5.2"
+
+        name = "S3FullAccess"
 
         policy_statements = [
           {
@@ -105,7 +107,7 @@ section {
       }
 
       variable "module_depends_on" {
-        type        = list(any)
+        type        = list(dependency)
         description = <<-END
           A list of dependencies. Any object can be assigned to this list to define a hidden external dependency.
         END
